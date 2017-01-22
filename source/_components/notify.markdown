@@ -16,11 +16,9 @@ The `notify` component makes it possible to send notifications to a wide variety
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: pushbullet
-  # Optional name for the notify service
-  name: paulus
-  # api_key is a required config key by the pushbullet platform
-  api_key: ABCDEFG
+  - platform: pushbullet
+    name: paulus
+    api_key: ABCDEFG
 ```
 
 The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
@@ -36,7 +34,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 | `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
-The notification component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
+The notification component supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
@@ -81,6 +79,4 @@ If the service support sending the location, the data from this sample can be us
   }
 }
 ```
-
-
 

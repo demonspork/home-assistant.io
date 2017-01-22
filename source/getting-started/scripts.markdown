@@ -26,7 +26,7 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
-#### {% linkable_title Call a Service %}
+### {% linkable_title Call a Service %}
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
@@ -38,7 +38,7 @@ data:
   brightness: 100
 ```
 
-#### {% linkable_title Test a Condition %}
+### {% linkable_title Test a Condition %}
 
 While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will finish. There are many different conditions which are documented at the [conditions page].
 
@@ -48,9 +48,9 @@ entity_id: device_tracker.paulus
 state: 'home'
 ```
 
-#### {% linkable_title Delay %}
+### {% linkable_title Delay %}
 
-Delays are useful for temporarily suspending your script and start it at a later moment. We support  different syntaxes for a delay as shown below.
+Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
 ```yaml
 # Waits 1 hour
@@ -72,10 +72,10 @@ delay:
 ```yaml
 # Waits however many minutes input_slider.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ input_slider.minute_delay }}:00'{% endraw %}
+delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% endraw %}
 ```
 
-#### {% linkable_title Fire an Event %}
+### {% linkable_title Fire an Event %}
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 

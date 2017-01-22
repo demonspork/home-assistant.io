@@ -21,14 +21,11 @@ To use this notification platform in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: aws_lambda
-  name: NOTIFIER_NAME
-  aws_access_key_id: AWS_ACCESS_KEY_ID
-  aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-  profile_name: AWS_PROFILE
-  region_name: 'us-east-1'
-  context:
-    ...
+  - name: NOTIFIER_NAME
+    platform: aws_lambda
+    aws_access_key_id: AWS_ACCESS_KEY_ID
+    aws_secret_access_key: AWS_SECRET_ACCESS_KEY
+    region_name: 'us-east-1'
 ```
 
 Configuration variables:
@@ -66,7 +63,7 @@ The context will look like this:
     "latitude": 44.1234,
     "location_name": "Home",
     "longitude": 5.5678,
-    "temperature_unit": "°C",
+    "unit_system": "metric",
     "time_zone": "Europe/Zurich",
     "version": "0.20.0.dev0"
   },

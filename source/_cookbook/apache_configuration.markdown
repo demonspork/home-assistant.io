@@ -10,7 +10,7 @@ footer: true
 ha_category: Infrastructure
 ---
 
-This is an example about how you can configure Apache to act as a proxy for home assistant.
+This example demonstrates how you can configure Apache to act as a proxy for home assistant.
 
 This is useful if you want to have:
 
@@ -25,19 +25,21 @@ Your home assistant is correctly working on this web server and available at loc
 
 To be able to access to your home assistant instance by using https://home.example.org, add to following file into `/etc/httpd/conf/extra/hass.conf`
 
-```apacheconf
+```text
 <VirtualHost *:443>
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName home.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
 </VirtualHost>
 ```
 
-and make sure that this file is read by apache's main configiuration file `/etc/httpd/conf/httpd.conf`
+and make sure that this file is read by Apache's main configuration file `/etc/httpd/conf/httpd.conf`
 
-```apacheconf
+```text
 ...
 Include conf/extra/hass.conf
 ...
@@ -69,11 +71,13 @@ Start home assistant: Now, you have another instance running on localhost:8124
 
 To access this instance by using https://countryside.example.org add to `/etc/httpd/conf/extra/hass.conf`
 
-```apacheconf
+```text
 <VirtualHost *:443>
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName countryside.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8124/
   ProxyPassReverse / http://localhost:8124/
 </VirtualHost>
@@ -83,7 +87,7 @@ To access this instance by using https://countryside.example.org add to `/etc/ht
 
 Add to your `/etc/httpd/conf/extra/hass.conf`
 
-```apacheconf
+```text
 <VirtualHost *:80>
   ServerName example.org
   ServerSignature Off

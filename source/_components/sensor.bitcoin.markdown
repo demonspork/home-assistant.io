@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: bitcoin.png
-ha_category: Sensor
+ha_category: Finance
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -21,7 +22,6 @@ To add the Bitcoin sensor to your installation, add a selection of the available
 # Example configuration.yaml entry
 sensor:
   platform: bitcoin
-  currency: YOUR CURRENCY
   display_options:
     - exchangerate
     - trade_volume_btc

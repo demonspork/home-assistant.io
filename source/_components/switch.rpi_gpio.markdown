@@ -20,11 +20,10 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rpi_gpio
-  ports:
-    11: Fan Office
-    12: Light Desk
-  invert_logic: false
+  - platform: rpi_gpio
+    ports:
+      11: Fan Office
+      12: Light Desk
 ```
 
 Configuration variables:
@@ -35,6 +34,3 @@ Configuration variables:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-<p class='note warning'>
-If you are not running Raspbian Jessie, you will need to run Home Assistant as root.
-</p>

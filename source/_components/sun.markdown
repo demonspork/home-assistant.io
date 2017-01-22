@@ -17,17 +17,12 @@ The sun component will use your current location to track if the sun is above or
 
 ```yaml
 # Example configuration.yaml entry
-homeassistant:
-  latitude: 32.87336
-  longitude: -117.22743
-
 sun:
-  elevation: 102
 ```
 
 Configuration variables:
 
-- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If ommitted will be retrieved from Google Maps.
+- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If omitted will be retrieved from Google Maps.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />

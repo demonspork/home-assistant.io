@@ -11,6 +11,7 @@ logo: plex.png
 ha_category: Media Player
 featured: true
 ha_release: 0.7.4
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -33,7 +34,7 @@ If you want to enable the plex platform directly, add the following lines to you
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: plex
+  - platform: plex
 ```
 
 In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
@@ -47,3 +48,12 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
 
 At this moment, the Plex platform only supports one Plex Media Server.
+
+It is possible to get errors that look like the following.
+
+```
+ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
+```
+
+If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.

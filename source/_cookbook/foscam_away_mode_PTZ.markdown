@@ -18,7 +18,7 @@ The following outlines examples of the switch, services, and scripts required to
 The `switch.foscam_motion` will control whether the motion detection is on or off. This switch supports `statecmd`, which checks the current state of motion detection.
 
 ```yaml
-# Replace admin and password with an "Admin" priviledged Foscam user
+# Replace admin and password with an "Admin" privileged Foscam user
 # Replace ipaddress with the local IP address of your Foscam
 switch:
  platform: command_line
@@ -28,9 +28,9 @@ switch:
      oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
      offcmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
      statecmd: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-     value_template: '{{ value == "1" }}'
+     value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
 ```
- 
+
 The service `shell_command.foscam_turn_off` sets the camera to point down and away to indicate it is not recording, and `shell_command.foscam_turn_on` sets the camera to point where I'd like to record. h of these services require preset points to be added to your camera. See source above for additional information.
 
 ```yaml

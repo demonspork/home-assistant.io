@@ -10,13 +10,14 @@ footer: true
 logo: mysensors.png
 ha_category: Binary Sensor
 ha_release: 0.14
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors binary sensors into Home Assistant. See the [main component] for configuration instructions.
 
 The following sensor types are supported:
 
-##### MySensors version 1.4 and higher
+#### MySensors version 1.4 and higher
 
 S_TYPE             | V_TYPE
 -------------------|---------------------------------------
@@ -24,7 +25,7 @@ S_DOOR             | V_TRIPPED
 S_MOTION           | V_TRIPPED
 S_SMOKE            | V_TRIPPED
 
-##### MySensors version 1.5 and higher
+#### MySensors version 1.5 and higher
 
 S_TYPE         | V_TYPE
 ---------------|----------------------------------

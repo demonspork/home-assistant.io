@@ -18,14 +18,11 @@ To add this platform to your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: mfi
-  host: IP_ADDRESS
-  port: PORT
-  username: USERNAME
-  password: PASSWORD
-  use_tls: true
-  verify_tls: true
+switch:
+  - platform: mfi
+    host: IP_ADDRESS
+    username: USERNAME
+    password: PASSWORD
 ```
 
 Configuration variables:
@@ -34,5 +31,5 @@ Configuration variables:
 - **port** (*Optional*): The port of your mFi controller. Defaults to 6443.
 - **username** (*Required*): The mFi admin username.
 - **password** (*Required*): The mFi admin user's password.
-- **use_tls** (*Optional*): If true, use TLS to contact the mFi controller. Defaults to true.
-- **verify_tls** (*Optional*): Set this to false if your mFi controller has a self-signed certificate. Defaults to true.
+- **ssl** (*Optional*): If `True`, use SSL/TLS to contact the mFi controller. Defaults to `True`.
+- **verify_ssl** (*Optional*): Set this to `False` if your mFi controller has a self-signed certificate. Defaults to `True`.

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: tcp_ip.png
 ha_category: Sensor
 ha_release: 0.14
 ---
@@ -16,16 +17,12 @@ The TCP component allows the integration of some services for which a specific H
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: Central Heating Pressure
-  host: IP_ADDRESS
-  port: PORT
-  timeout: 5
-  payload: PAYLOAD
-  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit: UNIT_OF_MEASUREMENT
+sensor:
+  - platform: tcp
+    host: IP_ADDRESS
+    port: PORT
+    payload: PAYLOAD
 ```
 
 Configuration options for the a TCP Sensor:
@@ -36,7 +33,7 @@ Configuration options for the a TCP Sensor:
 - **payload** (*Required*): What to send to the host in order to get the response we're interested in.
 - **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to `10`
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value. By default it's assumed that the entire response is the value.
-- **unit** (*Optional*): The unit of measurement to use for the value.
+- **unit_of_measurement** (*Optional*): The unit of measurement to use for the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to `1024`.
 
 ## {% linkable_title Examples %}
@@ -64,7 +61,7 @@ sensor:
   timeout: 5
   payload: "r WaterPressure\n"
   value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit: Bar
+  unit_of_measurement: Bar
 ```
 
 ### {% linkable_title hddtemp %}
@@ -98,5 +95,5 @@ sensor:
   timeout: 5
   payload: "\n"
   value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
-  unit: "°C"
+  unit_of_measurement: "°C"
 ```

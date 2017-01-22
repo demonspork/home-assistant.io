@@ -7,23 +7,23 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Transport
 logo: db.png
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ha_release: 0.14
 ---
 
 
-The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is ontime.
+The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is on time.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: deutsche_bahn
-  from: NAME_OF_START_STATION
-  to: NAME_OF_FINAL_STATION
+  - platform: deutsche_bahn
+    from: NAME_OF_START_STATION
+    to: NAME_OF_FINAL_STATION
 ```
 
 Configuration variables:
@@ -31,7 +31,7 @@ Configuration variables:
 - **from** (*Required*): The name of the start station.
 - **to** (*Required*): The name of the end/destination station.
 
-As already mentioned this sensor contains a lot of information to access those a [template senosr](/components/sensor.template/) can come handy.
+This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
 
 ```yaml
 # Example configuration.yaml entry

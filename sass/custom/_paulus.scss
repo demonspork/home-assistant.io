@@ -124,9 +124,12 @@ h6:hover a.title-link {
 
   &::before {
     position: absolute;
-    left: -50px;
+    top: 2px;
+    left: -25px;
     padding-right: 40px;
     font-family: "FontAwesome";
+    font-size: 15px;
+    color: #999;
     content: "\f0c1"
   }
 }
@@ -164,6 +167,9 @@ h6:hover a.title-link {
 }
 
 article.post, article.page, article.listing {
+  font-size: 1.125em;
+  line-height: 1.6;
+
   img, table {
     border-radius: 3px;
     box-shadow: rgba(0,0,0,0.06) 0 0 10px;
@@ -212,6 +218,27 @@ article.post, article.page, article.listing {
     &.btn {
       text-decoration: none;
     }
+  }
+
+  h1 {
+
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-top: 2em;
   }
 }
 
@@ -294,21 +321,6 @@ p.note {
       transition-property: transform, opacity;
   }
 
-  .filter-button-group {
-    margin-bottom: 16px;
-
-    .btn {
-      margin-right: 8px;
-      margin-bottom: 8px;
-      text-decoration: none;
-
-      &.current {
-        background-color: #3A5561;
-        background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
-      }
-    }
-  }
-
   #componentContainer {
     a {
       display: inline-block;
@@ -359,6 +371,57 @@ p.note {
     }
   }
 }
+
+@media only screen and (max-width: $lap-end) {
+  #components-page {
+    .filter-button-group {
+      margin-bottom: 16px;
+
+      .btn {
+        display: inline-block;
+        margin-right: 8px;
+        margin-bottom: 8px;
+
+        &.current {
+          background-color: #3A5561;
+          background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+    .filter-button-group {
+      .featured {
+        margin: 12px 0;
+      }
+
+      .added_in_current_version {
+        margin-top: 12px;
+      }
+
+      .added_two_versions_ago {
+        margin-bottom: 12px;
+      }
+
+      .btn {
+        display: block;
+        background: 0;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        padding: 2px;
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
 
 .aside-module {
   .section {

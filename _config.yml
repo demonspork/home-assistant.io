@@ -35,6 +35,8 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
+# highlighter: coderay
+
 kramdown:
   input: GFM
   auto_ids:       false
@@ -43,15 +45,6 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-  enable_coderay: true
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      nil
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               class
 
 highlighter: rouge
 
@@ -78,6 +71,10 @@ collections:
   components:
     output: true
   cookbook:
+    output: true
+  ecosystem:
+    output: true
+  details:
     output: true
   topics:
     output: true
@@ -130,3 +127,13 @@ social:
 
   twitter:
     account: home_assistant
+
+# Home Assistant release details
+current_major_version: 0
+current_minor_version: 36
+current_patch_version: 0
+date_released: 2017-01-15
+
+# Either # or the anchor link to latest release notes in the blog post.
+# Must be prefixed with a # and have double quotes around it.
+patch_version_notes: "#release-0353---december-23"

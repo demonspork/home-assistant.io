@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Frontend
+ha_category: Front end
 ha_release: 0.25
 ---
 
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
+
+<p class='note warning'>If you are accessing home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
 
 To enable Panel iFrames in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,11 +24,9 @@ To enable Panel iFrames in your installation, add the following to your `configu
 panel_iframe:
   router:
     title: 'Router'
-    icon: 'mdi:router-wireless'
     url: 'http://192.168.1.1'
   fridge:
     title: 'Fridge'
-    icon: 'mdi:fridge'
     url: 'http://192.168.1.5'
 ```
 

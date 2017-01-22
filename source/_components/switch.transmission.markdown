@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: transmission.png
-ha_category: Switch
+ha_category: Downloading
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,10 +23,6 @@ To add Transmission to your installation, add the following to your `configurati
 switch:
   platform: transmission
   host: IP_ADDRESS
-  port: 9091
-  name: Transmission
-  username: USERNAME
-  password: PASSWORD
 ```
 
 Configuration variables:

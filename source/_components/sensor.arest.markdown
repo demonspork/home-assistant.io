@@ -19,23 +19,14 @@ To use your aREST enabled device in your installation, add the following to your
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: arest
-  resource: http://IP_ADDRESS
-  name: Office
-  monitored_variables:
-    - name: temperature
-      unit_of_measurement: '°C'
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
-    - name: humidity
-      unit_of_measurement: '%'
-  pins:
-    A0:
-      name: Pin 0 analog
-      unit_of_measurement: "ca"
-      value_template: '{% raw %}{{ value_json.light }}{% endraw %}'
-    3:
-      name: Pin 3 digital
+  - platform: arest
+    resource: http://10.100.0.117
+    monitored_variables:
+      temperature:
+        name: temperature
+    pins:
+      A0:
+        name: Pin 0 analog
 ```
 
 Configuration variables:
@@ -44,7 +35,7 @@ Configuration variables:
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **name** (*Required*): The name of the variable you wish to monitor.
-  - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
+  - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
   - **name** (*Optional*): The name of the variable you wish to monitor.

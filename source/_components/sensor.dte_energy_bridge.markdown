@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+logo: dte_energy.png
+ha_category: Energy
 ha_release: 0.21
 ha_iot_class: "Local Polling"
 ---
@@ -19,11 +20,11 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: dte_energy_bridge
-  ip: 192.168.1.11
+  - platform: dte_energy_bridge
+    ip: 192.168.1.11
 ```
 
 Configuration variables:
 
 - **ip** (*Required*): The IP address of your bridge.
-
+- **name** (*Optional*): Name to use in the frontend.

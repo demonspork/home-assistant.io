@@ -20,8 +20,8 @@ To use RSS feeds in your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 feedreader:
   urls:
-   - https://home-assistant.io/atom.xml
-   - https://github.com/blog.atom
+    - https://home-assistant.io/atom.xml
+    - https://github.com/blog.atom
 ```
 
 Configuration variables:
@@ -40,6 +40,19 @@ automation:
       service: script.turn_on
       entity_id: script.my_action
 ```
+
+```yaml
+automation:
+  - alias: Send notification of RSS feed title when updated
+    trigger:
+      platform: event
+      event_type: feedreader
+    action:
+      service: notify.notify
+      data_template: "{{ trigger.event.data.title }}"
+```
+
+*Any field under the `<entry>` tag in the feed can be used for example `tigger.event.data.content` will get the body of the feed entry.
 
 For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
 

@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: 
-ha_category: Other
+logo: home-assistant.png
+ha_category: Front end
 ha_release: 0.13
 ---
 
@@ -22,7 +22,6 @@ weblink:
   entities:
     - name: Router
       url: http://192.168.1.1/
-      icon: mdi:router-wireless
     - name: Home Assistant
       url: https://home-assistant.io
 ```

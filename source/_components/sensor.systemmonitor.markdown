@@ -7,23 +7,25 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+logo: system_monitor.png
+ha_category: System Monitor
 ha_release: pre 0.7
+ha_iot_class: "Local Push"
 ---
 
-The `systemmonitor` sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
+The `systemmonitor` sensor platform allows you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_free
-    - type: processor_use
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: processor_use
 ```
 
 Configuration variables:
@@ -34,7 +36,7 @@ Configuration variables:
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
-| Type (`- type:`)    | Argument (`arg:`)        |
+| Type (`type:`)      | Argument (`arg:`)        |
 | :------------------ |:-------------------------|
 | disk_use_percent    | Path, eg. `/`            |
 | disk_use            | Path, eg. `/`            |
@@ -56,3 +58,33 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | last_boot           |                          |
 | since_last_boot     |                          |
 
+## {% linkable_title Linux specific %}
+
+To retrieve all available network interfaces on a Linux System, execute the `ifconfig` command.
+
+```bash
+$ ifconfig -a | sed 's/[ \t].*//;/^$/d'
+```
+
+## {% linkable_title Windows specific %}
+
+When running this platform on Microsoft Windows, Typically, the default interface would be called `Local Area Connection`, so your configuration might look like:
+
+```yaml
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: network_in
+        arg: 'Local Area Connection'
+```
+
+If you need to use some other interface, open a commandline prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ifconfig` might look like:
+
+```bash
+Wireless LAN adapter Wireless Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+```
+
+Where the name is `Wireless Network Connection`

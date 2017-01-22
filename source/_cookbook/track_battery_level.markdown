@@ -10,9 +10,12 @@ footer: true
 ha_category: Automation Examples
 ---
 
-The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/).
+### {% linkable_title iOS Devices %}
+
+If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/).
 
 ```yaml
+sensor:
   - platform: template
     sensors:
       battery_iphone:
@@ -26,6 +29,8 @@ The [iCloud](/components/device_tracker.icloud/) is gathering various details ab
 ```
 
 The `else` part is used to have the sensor keep it's last state if the newest [iCloud](/components/device_tracker.icloud/) update doesn't have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.
+
+### {% linkable_title Android and iOS Devices %}
 
 While running the [Owntracks](/components/device_tracker.owntracks/) device tracker you can retrieve the battery level with a MQTT sensor.
 

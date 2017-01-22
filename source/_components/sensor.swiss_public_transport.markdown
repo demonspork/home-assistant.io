@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: train.png
-ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_category: Transport
+ha_iot_class: "Cloud Polling"
 ha_release: pre 0.7
 ---
 
@@ -25,9 +25,9 @@ If the score is 100 ("score":"100" in the response), it is a perfect match. Then
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: swiss_public_transport
-  from: STATION_ID
-  to: STATION_ID
+  - platform: swiss_public_transport
+    from: STATION_ID
+    to: STATION_ID
 ```
 
 Configuration variables:

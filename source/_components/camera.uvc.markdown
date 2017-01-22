@@ -20,15 +20,14 @@ To enable a UVC camera in your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: uvc
-  nvr: IP_ADDRESS
-  port: PORT
-  key: APIKEY
+  - platform: uvc
+    nvr: IP_ADDRESS
+    key: API_KEY
 ```
 
 Configuration variables:
 
-- **nvr** *Required**: The IP or hostname of the NVR (Network Video Recorder) server.
-- **port** *Optional*: The port number to use for accessing the NVR.
-- **key** *Required*: The API key available from the NVR web interface.
+- **nvr** (*Required*): The IP or hostname of the NVR (Network Video Recorder) server.
+- **port** (*Optional*): The port number to use for accessing the NVR.
+- **key** (*Required*): The API key available from the NVR web interface.
 

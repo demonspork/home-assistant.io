@@ -7,19 +7,19 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+logo: supervisord.png
+ha_category: System Monitor
 ha_release: "0.20"
 ---
 
-The `supervisord` platform allows you to track the states of [Supervisor](http://supervisord.org/).
+The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: supervisord
-  url: http://192.168.1.1:9001/RPC2
+  - platform: supervisord
 ```
 
 Configuration variables:

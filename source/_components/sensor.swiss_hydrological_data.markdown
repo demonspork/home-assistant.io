@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
-ha_iot_class: "Local Polling"
+logo: swiss-hydrological-data.png
+ha_category: Weather
+ha_iot_class: "Cloud Polling"
 ha_release: 0.22
 ---
 
@@ -23,7 +24,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   platform: swiss_hydrological_data
-  name: Aare
   station: STATION_ID
 ```
 

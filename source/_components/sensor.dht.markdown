@@ -10,6 +10,7 @@ footer: true
 ha_category: DIY
 ha_release: 0.7
 logo: dht.png
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -23,7 +24,6 @@ sensor:
   platform: dht
   sensor: DHT22
   pin: 23
-  name: Living Room
   monitored_conditions:
     - temperature
     - humidity
@@ -34,15 +34,7 @@ Configuration variables:
 - **sensor** (*Required*): The sensor type, supported devices are DHT11, DHT22, and AM2302
 - **pin** (*Required*): The pin the sensor is connected to.
 - **name** (*Optional*): The name of the sensor
-- **monitored_conditions** array: Conditions to monitor.
-	- **temperature**:
-	- **humidity**: 
-
-Available conditions are only *temperature* and *humidity*.
+- **monitored_conditions** array  (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
 
 The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
-
-<p class='note warning'>
-As this requires access to the GPIO, you will need to run Home Assistant as root.
-</p>
 

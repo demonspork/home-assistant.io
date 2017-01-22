@@ -15,7 +15,7 @@ ha_release: 0.25
 
 The `x10` light platform allows you to control your X10 based lights with Home Assistant.
 
-Requires [Heyu x10 interface](http://www.heyu.org).
+Requires [Heyu x10](http://www.heyu.org) and a CM11A interface; the CM17A "FireCracker" interface is not supported.
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -23,14 +23,13 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: x10
-    lights:
-      - name: Living Room Lamp
-        id: a2
-      - name: Bedroom Lamp
-        id: a3
+    devices:
+      - id: a2
+      - id: a3
+        name: Bedroom Lamp
 ```
 
 Configuration variables:
 
-- **id** (*Required*): Device identifier. Composed of house code + unit id.
+- **id** (*Required*): Device identifier. Composed of house code und unit id.
 - **name** (*Optional*): A friendly name for the device. By default *id* from the device is used.

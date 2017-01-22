@@ -14,23 +14,14 @@ ha_release: 0.17
 ---
 
 
-The `rpi` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
+The `rpi_camera` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: rpi_camera
-  name: Raspberry Pi Camera
-  image_width: 640
-  image_height: 480
-  image_quality: 7
-  image_rotation: 0
-  timelapse: 1000
-  horizontal_flip: 0
-  vertical_flip: 0
-  file_path: /tmp/image.jpg
+  - platform: rpi_camera
 ```
 
 Configuration variables:
@@ -46,10 +37,4 @@ Configuration variables:
  - **file_path** (*Optional*): Save the picture in a custom file path (default: camera components folder)
  
 The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.
-
-Ensure that the user who is running Home Assistant is in the video group. Eg. for the user `hass`:
-
-```bash
-$ sudo usermod -a -G video hass
-```
 

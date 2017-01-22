@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Thinking Cleaner sensor"
-description: "Instructions how to integrate a ThinkingCleaner senosrs within Home Assistant."
+description: "Instructions how to integrate a ThinkingCleaner sensor within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
 comments: false
@@ -20,7 +20,7 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: thinkingcleaner
+  - platform: thinkingcleaner
 ```
 
 This will automatically add sensors for each Thinking Cleaner in your network.

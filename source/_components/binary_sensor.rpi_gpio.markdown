@@ -10,8 +10,8 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
+ha_iot_class: "Local Push"
 ---
-
 
 The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
@@ -20,13 +20,10 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: rpi_gpio
-  ports:
-    11: PIR Office
-    12: PIR Bedroom
-  pull_mode: "UP"
-  bouncetime: 50
-  invert_logic: false
+  - platform: rpi_gpio
+    ports:
+      11: PIR Office
+      12: PIR Bedroom
 ```
 
 Configuration variables:
@@ -39,10 +36,3 @@ Configuration variables:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-<p class='note warning'>
-If you are not running Raspbian Jessie, you will need to run Home Assistant as root.
-</p>
-
-<p class='note warning'>
-To avoid having to run Home Assistant as root when using this component, run a Raspbian version released at or after September 29, 2015.
-</p>

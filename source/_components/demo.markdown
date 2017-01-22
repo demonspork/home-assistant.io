@@ -12,21 +12,25 @@ ha_category: Other
 ---
 
 
-The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the acutal platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](https://home-assistant.io/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
+The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](https://home-assistant.io/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
 
 Available demo platforms:
 
 - [Alarm control panel](/components/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/components/binary_sensor/) (`binary_sensor`)
 - [Camera](/components/camera/) (`camera`)
-- [Garage door](/components/garage_door/) (`garage_door`)
+- [Climate](/components/climate/) (`climate`)
+- [Cover](/components/cover/) (`cover`)
+- [Fan](/components/fan/) (`fan`)
+- [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
 - [Notification](/components/notify/) (`notify`)
-- [Roller shutter](/components/rollershutter/) (`rollershutter`)
+- [Remote](/components/remote/) (`remote`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
-- [Thermostat](/components/thermostat/) (`thermostat`)
+- [Text-to-speech](/components/tts/) (`tts`)
+- [Weather](/components/weather/) (`weather`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

@@ -21,12 +21,8 @@ To use your MQTT sensor in your installation, add the following to your `configu
 ```yaml
 # Example configuration.yml entry
 sensor:
-  platform: mqtt
-  state_topic: "home/bedroom/temperature"
-  name: "MQTT Sensor"
-  qos: 0
-  unit_of_measurement: "°C"
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: mqtt
+    state_topic: "home/bedroom/temperature"
 ```
 
 Configuration variables:
@@ -54,10 +50,38 @@ Thus the trick is extract the battery level from the payload.
 ```yaml
 # Example configuration.yml entry
 sensor:
-  platform: mqtt
-  state_topic: "owntracks/tablet/tablet"
-  name: "Battery Tablet"
-  unit_of_measurement: "%"
-  value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
+  - platform: mqtt
+    state_topic: "owntracks/tablet/tablet"
+    name: "Battery Tablet"
+    unit_of_measurement: "%"
+    value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
 ```
 
+### {% linkable_title Get temperature and humidity %}
+
+If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this: 
+
+```json
+office/sensor1
+  {
+    "temperature": 23.20,
+    "humidity": 43.70
+  }
+```
+
+Then use this configuration example to extract the data from the payload:
+
+```yaml
+# Example configuration.yml entry
+sensor:
+  - platform: mqtt
+    state_topic: 'office/sensor1'
+    name: 'Temperature'
+    unit_of_measurement: '°C'
+    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
+  - platform: mqtt
+    state_topic: 'office/sensor1'
+    name: 'Humidity'
+    unit_of_measurement: '%'
+    value_template: {% raw %}'{{ value_json.humidity }}'{% endraw %}
+```

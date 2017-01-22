@@ -17,23 +17,20 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-</p>
+If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip install lxml</code>; be patient this will take a while.</p>
 
 To use an Fritz!Box router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: fritz
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: fritz
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
-- **username** (*Optional*: The username of an user with administrative privileges, usually *admin*.
+- **host** (*Optional*): The IP address of your router, eg. `192.168.1.1`. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+- **username** (*Optional*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Optional*): The password for your given admin account.
 
 <p class='note'>
